@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  padding: 5px;
+  width: 100%;
+
+  text-align: center;
+
+  color: white;
+  background-color: #264653;
+}
+
+div.box_text {
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+div.box_input {
+  margin: 0 auto;
+  padding: 15px;
+  width: 90%;
+  height: fit-content;
+
+  border: 1px solid black;
+}
+
+div.input_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+div.input_wrapper input {
+  padding: 5px;
+}
+
+div.box_buttons {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  /* border: 1px solid blue; */
+}
+
+div.box_buttons button {
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*TABLE AREA */
+
+table {
+  margin: 10px auto;
+  width: 90%;
+  height: fit-content;
+
+  border-collapse: collapse;
+}
+
+table thead th {
+  text-align: center;
+  padding: 2px;
+  background-color: #2A9D8F;
+}
+
+table tbody td {
+  padding: 2px;
+  border: 1px solid black;
+}
+
+table tbody td.table_button {
+  text-align: center;
+}
+

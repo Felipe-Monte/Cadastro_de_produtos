@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <h1>Meus Produtos 1.0</h1>
+    </header>
+    <main>
+      <div class="box_text">
+        <h2>Produtos</h2>
+        <p>Lista de produtos cadastrados</p>
+      </div>
+
+      <div class="box_input">
+        <div class="input_wrapper">
+          <label for="name">Produto</label>
+          <input type="text" id="name">
+        </div>
+
+        <div class="input_wrapper">
+          <label for="price">Preço</label>
+          <input type="number" id="price">
+        </div>
+        
+        <div class="box_buttons">
+          <button>Salvar</button>
+          <button>Cancelar</button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Produto</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Camisa</td>
+            <td>90</td>
+            <td class="table_button">
+              <button>Editar</button>
+              <button>Deletar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Blusa</td>
+            <td>50</td>
+            <td class="table_button">
+              <button>Editar</button>
+              <button>Deletar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Short</td>
+            <td>36</td>
+            <td class="table_button">
+              <button>Editar</button>
+              <button>Deletar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+
+</html>
