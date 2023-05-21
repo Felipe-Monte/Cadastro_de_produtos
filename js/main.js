@@ -37,12 +37,13 @@ const Products = [
 // }
 // userData()
 
+let id = 0
 function createTR() {
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
   const tr = document.createElement('tr')
   tr.innerHTML = `
-  <td class="product_number">1</td>
+  <td class="product_number">${++id}</td>
   <td class="product_name">${productName}</td>
   <td class="product_price">${productPrice}</td>
   <td class="table_button">
