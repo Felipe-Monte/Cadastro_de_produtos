@@ -1,6 +1,7 @@
 const inputProduct = document.querySelector('#product')
 const inputPrice = document.querySelector('#price')
 const btnSave = document.querySelector('.save')
+const btnCancel = document.querySelector('.cancel')
 
 const tr = document.querySelectorAll('tbody tr')
 
@@ -64,13 +65,18 @@ btnSave.addEventListener('click', () => {
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
 
-  if (!productName){
+  if (!productName) {
     return alert('Product name is mandatory')
   }
   renderTable()
 })
 
 tr.forEach(data => {
-  data.remove() 
+  data.remove()
 })
 
+btnCancel.addEventListener('click', () => {
+  inputProduct.value = ''
+  inputPrice.value = ''
+  inputProduct.focus()
+})
