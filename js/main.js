@@ -60,7 +60,6 @@ function renderTable() {
   tbody.append(tr)
 }
 
-
 btnSave.addEventListener('click', () => {
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
@@ -68,7 +67,6 @@ btnSave.addEventListener('click', () => {
   if (!productName){
     return alert('Product name is mandatory')
   }
-  
   renderTable()
 })
 
