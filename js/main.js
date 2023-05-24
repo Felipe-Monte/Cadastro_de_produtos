@@ -7,23 +7,7 @@ const btnCancel = document.querySelector('.cancel')
 const tr = document.querySelectorAll('tbody tr')
 let idCounter = 0
 
-const Products = [
-  {
-    id: 1,
-    product: "Joia",
-    value: 90,
-  },
-  {
-    id: 2,
-    product: "Dado",
-    value: 50,
-  },
-  {
-    id: 3,
-    product: "Livro",
-    value: 36,
-  }
-]
+let myObject = {}
 
 function createTR() {
   let productName = inputProduct.value
@@ -38,8 +22,16 @@ function createTR() {
     <button class="delete">Deletar</button>
   </td>
   `
+
+  myObject.name = productName
+  myObject.value = productPrice
+  console.log(myObject)
+
   return tr
 }
+
+
+
 
 function renderTable() {
   let tbody = document.querySelector('table tbody')
@@ -61,12 +53,12 @@ btnSave.addEventListener('click', () => {
   renderTable()
 })
 
-tr.forEach(data => {
-  data.remove()
-})
-
 btnCancel.addEventListener('click', () => {
   inputProduct.value = ''
   inputPrice.value = ''
   inputProduct.focus()
 })
+
+// tr.forEach(data => {
+//   data.remove()
+// })
