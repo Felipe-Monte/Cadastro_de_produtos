@@ -1,45 +1,48 @@
-const inputProduct = document.querySelector('#product')
-const inputPrice = document.querySelector('#price')
+class Product {
+  constructor(root) {
+    this.root = document.querySelector(root)
+    this.id = 1
 
-const btnSave = document.querySelector('.save')
-const btnCancel = document.querySelector('.cancel')
+    const btn = this.root.querySelector('.save')
 
-let items = []
+    btn.onclick = () => {
+      this.save()
+    }
+  }
 
-btnSave.addEventListener('click', () => {
-  const tbody = document.querySelector('table tbody')
-  let productName = inputProduct.value
-  let productPrice = Number(inputPrice.value)
-  
-  let row = createTR()
-  items.push(row)
-  tbody.append(row)
+  save() {
+    let product = this.getUserDate()
+    console.log(product)
+  }
 
-  items.forEach(data => {
-    console.log(data.innerHTML)
-  })
-})  
+  getUserDate() {
+    let products = {}
 
-btnCancel.addEventListener('click', () => {
-  inputProduct.value = ''
-  inputPrice.value = ''
-  inputProduct.focus()
-})
+    products.id = this.id
+    products.productName = document.querySelector('#product').value
+    products.productPrice = Number(document.querySelector('#price').value)
+    
+    return products
+  }
 
-function createTR() {
-  const tr = document.createElement('tr')
-  let productName = inputProduct.value
-  let productPrice = Number(inputPrice.value)
+}
 
-  tr.innerHTML = `
-  <td class="product_number">1</td>
-  <td class="product_name">${productName}</td>
-  <td class="product_price">${productPrice}</td>
-  <td class="table_button">
-    <button class="edit">Editar</button>
-    <button class="delete">Deletar</button>
-  </td>  
-  `
-  return tr
-}  
+const product = new Product(".app")
+
+// function createTR() {
+//   const tr = document.createElement('tr')
+//   let productName = inputProduct.value
+//   let productPrice = Number(inputPrice.value)
+
+//   tr.innerHTML = `
+//   <td class="product_number">1</td>
+//   <td class="product_name">${productName}</td>
+//   <td class="product_price">${productPrice}</td>
+//   <td class="table_button">
+//     <button class="edit">Editar</button>
+//     <button class="delete">Deletar</button>
+//   </td>  
+//   `
+//   return tr
+// }  
 
