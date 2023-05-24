@@ -14,7 +14,10 @@ btnSave.addEventListener('click', () => {
   let row = createTR()
   items.push(row)
   tbody.append(row)
-  console.log(items)
+
+  items.forEach(data => {
+    console.log(data.innerHTML)
+  })
 })  
 
 btnCancel.addEventListener('click', () => {
