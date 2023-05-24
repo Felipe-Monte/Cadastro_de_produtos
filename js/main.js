@@ -25,7 +25,7 @@ class Product {
   getUserDate() {
     let products = {}
 
-    products.id = this.id
+    products.id = this.id++
     products.productName = document.querySelector('#product').value
     products.productPrice = Number(document.querySelector('#price').value)
 
@@ -40,7 +40,6 @@ class Product {
     } else {
       return false
     }
-
   }
 
 }
