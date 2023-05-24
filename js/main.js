@@ -2,17 +2,19 @@ class Product {
   constructor(root) {
     this.root = document.querySelector(root)
     this.id = 1
+    this.arrayProduct = []
 
     const btn = this.root.querySelector('.save')
 
     btn.onclick = () => {
-      this.save()
+      this.render()
     }
   }
 
-  save() {
+  render() {
     let product = this.getUserDate()
-    console.log(product)
+    this.arrayProduct.push(product)
+    console.log(this.arrayProduct)
   }
 
   getUserDate() {
