@@ -8,7 +8,7 @@ const tr = document.querySelectorAll('tbody tr')
 
 let idCounter = 0
 
-let myObject = {}
+let myItems = {}
 
 function createTR() {
   let productName = inputProduct.value
@@ -26,10 +26,10 @@ function createTR() {
   </td>
   `
 
-  myObject.name = productName
-  myObject.value = productPrice
-  console.log(myObject)
-
+  myItems.name = productName
+  myItems.price = productPrice
+  // console.log(myItems)
+  localStorage.setItem("dadosTabela", JSON.stringify(myItems));
   return tr
 }
 
