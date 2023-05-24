@@ -5,6 +5,7 @@ const btnSave = document.querySelector('.save')
 const btnCancel = document.querySelector('.cancel')
 
 const tr = document.querySelectorAll('tbody tr')
+
 let idCounter = 0
 
 let myObject = {}
@@ -12,7 +13,9 @@ let myObject = {}
 function createTR() {
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
+
   const tr = document.createElement('tr')
+
   tr.innerHTML = `
   <td class="product_number">${++idCounter}</td>
   <td class="product_name">${productName}</td>
@@ -30,12 +33,10 @@ function createTR() {
   return tr
 }
 
-
-
-
 function renderTable() {
   let tbody = document.querySelector('table tbody')
   let tr = createTR()
+
   tbody.append(tr)
 
   tr.querySelector('.delete').onclick = () => {
@@ -50,6 +51,7 @@ btnSave.addEventListener('click', () => {
   if (!productName) {
     return alert('Product name is mandatory')
   }
+  
   renderTable()
 })
 
@@ -59,6 +61,3 @@ btnCancel.addEventListener('click', () => {
   inputProduct.focus()
 })
 
-// tr.forEach(data => {
-//   data.remove()
-// })
