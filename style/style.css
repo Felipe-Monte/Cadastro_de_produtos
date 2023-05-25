@@ -73,6 +73,7 @@ table thead th {
 
 table tbody td {
   padding: 2px;
+  font-size: 25px;
   border: 1px solid black;
 }
 
