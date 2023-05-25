@@ -8,6 +8,7 @@ class Product {
 
     btn.onclick = () => {
       this.render()
+      this.getObject()
     }
   }
 
@@ -19,13 +20,13 @@ class Product {
     }
 
     this.arrayProduct.push(product)
-    console.log(this.arrayProduct)
+    // console.log(this.arrayProduct)
   }
 
   getUserDate() {
     let products = {}
 
-    products.id = this.id++
+    products.id = this.id
     products.productName = document.querySelector('#product').value
     products.productPrice = Number(document.querySelector('#price').value)
 
@@ -42,24 +43,25 @@ class Product {
     }
   }
 
+  getObject() {
+    const products = this.getUserDate()
+
+    const tbody = document.querySelector('table tbody')
+    const row = document.createElement('tr')
+    row.innerHTML = `
+    <td class="product_number">1</td>
+    <td class="product_name">${products.productName}</td>
+    <td class="product_price">${products.productPrice}</td>
+    <td class="table_button">
+     <button class="edit">Editar</button>
+     <button class="delete">Deletar</button>
+    </td>
+    `
+    tbody.append(row)
+    console.log(row)
+  }
+
 }
 
 const product = new Product(".app")
-
-// function createTR() {
-//   const tr = document.createElement('tr')
-//   let productName = inputProduct.value
-//   let productPrice = Number(inputPrice.value)
-
-//   tr.innerHTML = `
-//   <td class="product_number">1</td>
-//   <td class="product_name">${productName}</td>
-//   <td class="product_price">${productPrice}</td>
-//   <td class="table_button">
-//     <button class="edit">Editar</button>
-//     <button class="delete">Deletar</button>
-//   </td>
-//   `
-//   return tr
-// }  
 
