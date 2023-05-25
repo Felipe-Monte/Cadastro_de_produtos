@@ -46,6 +46,10 @@ class Product {
   getObject() {
     const products = this.getUserDate()
 
+    if (products.productName == '' || products.productPrice == '') {
+      return 
+    }
+
     const tbody = document.querySelector('table tbody')
     const row = document.createElement('tr')
     row.innerHTML = `
