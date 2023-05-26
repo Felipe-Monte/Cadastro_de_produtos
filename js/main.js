@@ -20,7 +20,7 @@ class Product {
     }
 
     this.arrayProduct.push(product)
-    // console.log(this.arrayProduct)
+    console.log(this.arrayProduct)
   }
 
   getUserDate() {
