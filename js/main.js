@@ -6,10 +6,7 @@ class Product {
 
     const btn = this.root.querySelector('.save')
 
-    btn.onclick = () => {
-      this.render()
-      this.getObject()
-    }
+    btn.onclick = () => { this.render() }
   }
 
   render() {
@@ -21,6 +18,26 @@ class Product {
 
     this.arrayProduct.push(product)
     console.log(this.arrayProduct)
+
+    const tbody = document.querySelector('table tbody')
+
+    tbody.innerHTML = ''
+    for (let i = 0; i < this.arrayProduct.length; i++) {
+      let product = this.arrayProduct[i]
+
+      const row = tbody.insertRow()
+
+      let row_id = row.insertCell()
+      let row_product = row.insertCell()
+      let row_price = row.insertCell()
+      let row_action = row.insertCell()
+
+      row_id.innerHTML = product.id
+      row_product.innerHTML = product.productName
+      row_price.innerHTML = product.productPrice
+      row_action = ''
+    }
+
   }
 
   getUserDate() {
@@ -42,29 +59,6 @@ class Product {
       return false
     }
   }
-
-  getObject() {
-    const products = this.getUserDate()
-
-    if (products.productName == '' || products.productPrice == '') {
-      return 
-    }
-
-    const tbody = document.querySelector('table tbody')
-    const row = document.createElement('tr')
-    row.innerHTML = `
-    <td class="product_number">1</td>
-    <td class="product_name">${products.productName}</td>
-    <td class="product_price">${products.productPrice}</td>
-    <td class="table_button">
-     <button class="edit">Editar</button>
-     <button class="delete">Deletar</button>
-    </td>
-    `
-    tbody.append(row)
-    console.log(row)
-  }
-
 }
 
 const product = new Product(".app")
