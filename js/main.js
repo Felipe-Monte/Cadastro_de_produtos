@@ -1,64 +1,38 @@
 class Product {
   constructor(root) {
     this.root = document.querySelector(root)
-    this.id = 1
-    this.arrayProduct = []
+    this.productArray = []
 
-    const btn = this.root.querySelector('.save')
 
-    btn.onclick = () => { this.render() }
+    const btn = document.querySelector('.save')
+
+    btn.onclick = () => {
+      this.update()
+    }
   }
 
-  render() {
-    let product = this.getUserDate()
-
-    if (this.checkInputEmpty(product)) {
-      return
-    }
-
-    this.arrayProduct.push(product)
-    console.log(this.arrayProduct)
+  update() {
+    let products = this.getUserData()
 
     const tbody = document.querySelector('table tbody')
-
-    tbody.innerHTML = ''
-    for (let i = 0; i < this.arrayProduct.length; i++) {
-      let product = this.arrayProduct[i]
-
-      const row = tbody.insertRow()
-
-      let row_id = row.insertCell()
-      let row_product = row.insertCell()
-      let row_price = row.insertCell()
-      let row_action = row.insertCell()
-
-      row_id.innerHTML = product.id
-      row_product.innerHTML = product.productName
-      row_price.innerHTML = product.productPrice
-      row_action = ''
-    }
-
+    const row = tbody.insertRow()
+    row.insertCell()
+    row.insertCell()
+    row.insertCell()
+    row.insertCell()
   }
 
-  getUserDate() {
+  getUserData() {
     let products = {}
 
-    products.id = this.id
-    products.productName = document.querySelector('#product').value
-    products.productPrice = Number(document.querySelector('#price').value)
+    products.id = 1
+    products.name = document.querySelector('#product').value
+    products.price = Number(document.querySelector('#price').value)
+    products.action = ""
 
     return products
   }
 
-  checkInputEmpty(product) {
-    let msg = "Ambos os campos são obrigatórios"
-    if (product.productName == '' || product.productPrice == '') {
-      alert(msg)
-      return true
-    } else {
-      return false
-    }
-  }
 }
 
 const product = new Product(".app")
