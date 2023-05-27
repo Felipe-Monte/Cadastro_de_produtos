@@ -4,22 +4,27 @@ class Product {
     this.productArray = []
 
 
-    const btn = document.querySelector('.save')
+    const btnSave = document.querySelector('.save')
 
-    btn.onclick = () => {
-      this.update()
-    }
+    btnSave.onclick = () => { this.update() }
   }
 
   update() {
     let products = this.getUserData()
+    this.productArray.push(products)
 
     const tbody = document.querySelector('table tbody')
     const row = tbody.insertRow()
-    row.insertCell()
-    row.insertCell()
-    row.insertCell()
-    row.insertCell()
+
+    const row_id = row.insertCell()
+    const row_name = row.insertCell()
+    const row_price = row.insertCell()
+    const row_action = row.insertCell()
+
+    row_id.innerHTML = products.id
+    row_name.innerHTML = products.name
+    row_price.innerHTML = products.price
+    row_action.innerHTML = products.action
   }
 
   getUserData() {
