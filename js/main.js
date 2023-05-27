@@ -3,9 +3,9 @@ class Product {
     this.root = document.querySelector(root)
     this.productArray = []
 
-    const itens = JSON.parse(localStorage.getItem("list") || "[]")
+    const items = JSON.parse(localStorage.getItem("list") || "[]")
 
-    for (let i = 0; i < itens.length; i++) {
+    for (let i = 0; i < items.length; i++) {
       const tbody = document.querySelector('table tbody')
       const row = tbody.insertRow()
 
@@ -14,15 +14,20 @@ class Product {
       const row_price = row.insertCell()
       const row_action = row.insertCell()
 
-      row_id.innerHTML = itens[i].id
-      row_name.innerHTML = itens[i].name
-      row_price.innerHTML = itens[i].price
-      row_action.innerHTML = itens[i].action
+      row_id.innerHTML = items[i].id
+      row_name.innerHTML = items[i].name
+      row_price.innerHTML = items[i].price
+      row_action.innerHTML = items[i].action
     }
 
     const btnSave = document.querySelector('.save')
+    const btnDelete = document.querySelector('.cancel')
 
     btnSave.onclick = () => { this.update() }
+    btnDelete.onclick = () => { 
+      this.deleteAllRow() 
+      this.save()
+    }
   }
 
   update() {
@@ -30,6 +35,9 @@ class Product {
     this.productArray.push(products)
     this.save()
 
+    document.querySelector("#product").value = ""
+    document.querySelector('#price').value = ""
+    document.querySelector("#product").focus()
 
     const tbody = document.querySelector('table tbody')
     const row = tbody.insertRow()
@@ -58,6 +66,13 @@ class Product {
 
   save() {
     localStorage.setItem("list", JSON.stringify(this.productArray))
+  }
+
+  deleteAllRow() {
+    const row = document.querySelectorAll('table tbody td')
+    row.forEach(elements => {
+      elements.remove()
+    })
   }
 }
 
