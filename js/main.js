@@ -3,7 +3,6 @@ class Product {
     this.root = document.querySelector(root)
     this.productArray = []
 
-
     const btnSave = document.querySelector('.save')
 
     btnSave.onclick = () => { this.update() }
@@ -12,6 +11,8 @@ class Product {
   update() {
     let products = this.getUserData()
     this.productArray.push(products)
+    this.save()
+
 
     const tbody = document.querySelector('table tbody')
     const row = tbody.insertRow()
@@ -38,6 +39,9 @@ class Product {
     return products
   }
 
+  save() {
+    localStorage.setItem("list", JSON.stringify(this.getUserData()))
+  }
 }
 
 const product = new Product(".app")
