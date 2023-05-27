@@ -5,8 +5,19 @@ class Product {
 
     const itens = JSON.parse(localStorage.getItem("list") || "[]")
 
-    for(let i = 0; i < itens.length; i++){
-      console.log(itens[i])
+    for (let i = 0; i < itens.length; i++) {
+      const tbody = document.querySelector('table tbody')
+      const row = tbody.insertRow()
+
+      const row_id = row.insertCell()
+      const row_name = row.insertCell()
+      const row_price = row.insertCell()
+      const row_action = row.insertCell()
+
+      row_id.innerHTML = itens[i].id
+      row_name.innerHTML = itens[i].name
+      row_price.innerHTML = itens[i].price
+      row_action.innerHTML = itens[i].action
     }
 
     const btnSave = document.querySelector('.save')
