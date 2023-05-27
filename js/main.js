@@ -24,14 +24,20 @@ class Product {
     const btnDelete = document.querySelector('.cancel')
 
     btnSave.onclick = () => { this.update() }
-    btnDelete.onclick = () => { 
-      this.deleteAllRow() 
+    btnDelete.onclick = () => {
+      this.deleteAllRow()
+      this.productArray = []
       this.save()
     }
   }
 
   update() {
     let products = this.getUserData()
+
+    if(this.checkVerification(products)) {
+      return alert('campo vazio')
+    }
+
     this.productArray.push(products)
     this.save()
 
@@ -59,7 +65,7 @@ class Product {
     products.id = 1
     products.name = document.querySelector('#product').value
     products.price = Number(document.querySelector('#price').value)
-    products.action = ""
+    products.action = "update were"
 
     return products
   }
@@ -73,6 +79,14 @@ class Product {
     row.forEach(elements => {
       elements.remove()
     })
+  }
+
+  checkVerification(product) {
+    if(product.name == "" || product.price == ""){
+      return true
+    } else {
+      return false
+    }
   }
 }
 
