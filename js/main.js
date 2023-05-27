@@ -3,6 +3,12 @@ class Product {
     this.root = document.querySelector(root)
     this.productArray = []
 
+    const itens = JSON.parse(localStorage.getItem("list") || "[]")
+
+    for(let i = 0; i < itens.length; i++){
+      console.log(itens[i])
+    }
+
     const btnSave = document.querySelector('.save')
 
     btnSave.onclick = () => { this.update() }
@@ -40,7 +46,7 @@ class Product {
   }
 
   save() {
-    localStorage.setItem("list", JSON.stringify(this.getUserData()))
+    localStorage.setItem("list", JSON.stringify(this.productArray))
   }
 }
 
