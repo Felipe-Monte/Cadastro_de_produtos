@@ -47,7 +47,6 @@ div.box_buttons {
   margin-top: 10px;
   padding: 5px;
   width: 100%;
-  /* border: 1px solid blue; */
 }
 
 div.box_buttons button {
@@ -55,7 +54,7 @@ div.box_buttons button {
   font-family: 'Roboto', sans-serif;
 }
 
-/*TABLE AREA */
+/* TABLE AREA */
 
 table {
   margin: 10px auto;
