@@ -8,7 +8,7 @@ class Product {
     for (let i = 0; i < items.length; i++) {
       const tbody = document.querySelector('table tbody')
       const row = tbody.insertRow()
-
+  
       const row_id = row.insertCell()
       const row_name = row.insertCell()
       const row_price = row.insertCell()
@@ -18,6 +18,14 @@ class Product {
       row_name.innerHTML = items[i].name
       row_price.innerHTML = items[i].price
       row_action.innerHTML = items[i].action
+
+      row_action.querySelector('.edit').onclick = () => {
+        alert('editar')
+      }
+
+      row_action.querySelector('.delete').onclick = () => {
+        alert('deletar')
+      }
     }
 
     const btnSave = document.querySelector('.save')
@@ -65,7 +73,8 @@ class Product {
     products.id = 1
     products.name = document.querySelector('#product').value
     products.price = Number(document.querySelector('#price').value)
-    products.action = "update were"
+    products.action = `<button class="edit">Editar</button>
+    <button class="delete">Deletar</button>`
 
     return products
   }
