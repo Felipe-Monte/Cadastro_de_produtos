@@ -1,9 +1,9 @@
 class Product {
   constructor(root) {
     this.root = document.querySelector(root)
-    this.productArray = []
-
+    
     const items = JSON.parse(localStorage.getItem("list") || "[]")
+    this.productArray = items
 
     for (let i = 0; i < items.length; i++) {
       const tbody = document.querySelector('table tbody')
