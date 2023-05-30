@@ -1,14 +1,14 @@
 class Product {
   constructor(root) {
     this.root = document.querySelector(root)
-    
+
     const items = JSON.parse(localStorage.getItem("list") || "[]")
     this.productArray = items
 
     for (let i = 0; i < items.length; i++) {
       const tbody = document.querySelector('table tbody')
       const row = tbody.insertRow()
-  
+
       const row_id = row.insertCell()
       const row_name = row.insertCell()
       const row_price = row.insertCell()
@@ -37,7 +37,7 @@ class Product {
   update() {
     let products = this.getUserData()
 
-    if(this.checkVerification(products)) {
+    if (this.checkVerification(products)) {
       return alert('campo vazio')
     }
 
@@ -88,20 +88,20 @@ class Product {
   }
 
   checkVerification(product) {
-    if(product.name == "" || product.price == ""){
+    if (product.name == "" || product.price == "") {
       return true
     } else {
       return false
     }
   }
 
+
   checkClickInDelete() {
     const allTr = document.querySelectorAll('tbody tr')
 
     allTr.forEach(item => {
       item.querySelector('.delete').onclick = () => {
-        let isOk = confirm("Deseja deletar ?")
-          console.log(isOk)
+        item.remove()
       }
     })
   }
