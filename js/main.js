@@ -23,6 +23,8 @@ class Product {
     const btnSave = document.querySelector('.save')
     const btnDelete = document.querySelector('.cancel')
 
+    this.checkClickInDelete()
+
     btnSave.onclick = () => { this.update() }
 
     btnDelete.onclick = () => {
@@ -58,6 +60,8 @@ class Product {
     row_name.innerHTML = products.name
     row_price.innerHTML = products.price
     row_action.innerHTML = products.action
+
+    this.checkClickInDelete()
   }
 
   getUserData() {
@@ -89,6 +93,16 @@ class Product {
     } else {
       return false
     }
+  }
+ 
+  checkClickInDelete() {
+    const allTr = document.querySelectorAll('tbody tr')
+
+    allTr.forEach(item => {
+      item.querySelector('.delete').onclick = () => {
+        let isOk = confirm("Deseja deletar ?")
+      }
+    })
   }
 }
 
