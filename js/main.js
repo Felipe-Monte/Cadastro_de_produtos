@@ -18,21 +18,13 @@ class Product {
       row_name.innerHTML = items[i].name
       row_price.innerHTML = items[i].price
       row_action.innerHTML = items[i].action
-
-      row_action.querySelector('.edit').onclick = () => {
-        alert('editar')
-      }
-
-      row_action.querySelector('.delete').onclick = () => {
-        alert('deletar')
-      }
     }
 
     const btnSave = document.querySelector('.save')
     const btnDelete = document.querySelector('.cancel')
 
     btnSave.onclick = () => { this.update() }
-    
+
     btnDelete.onclick = () => {
       this.deleteAllRow()
       this.productArray = []
