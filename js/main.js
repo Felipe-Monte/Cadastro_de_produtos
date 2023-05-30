@@ -32,6 +32,7 @@ class Product {
     const btnDelete = document.querySelector('.cancel')
 
     btnSave.onclick = () => { this.update() }
+    
     btnDelete.onclick = () => {
       this.deleteAllRow()
       this.productArray = []
