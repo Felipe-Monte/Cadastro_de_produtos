@@ -94,13 +94,14 @@ class Product {
       return false
     }
   }
- 
+
   checkClickInDelete() {
     const allTr = document.querySelectorAll('tbody tr')
 
     allTr.forEach(item => {
       item.querySelector('.delete').onclick = () => {
         let isOk = confirm("Deseja deletar ?")
+          console.log(isOk)
       }
     })
   }
