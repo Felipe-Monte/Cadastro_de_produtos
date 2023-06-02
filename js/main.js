@@ -7,12 +7,18 @@ const btnSave = document.querySelector('.save')
 const tbody = document.querySelector('table tbody')
 
 const data = []
+let id = 1
+
+function render() {
+  let myList = JSON.parse(localStorage.getItem('itemList'))
+  console.log(myList)
+}
+render()
 
 btnSave.addEventListener('click', function () {
   const products = getDataUser()
   data.push(products)
-
-  console.log(data)
+  save()
 })
 
 function getDataUser() {
@@ -30,12 +36,16 @@ function getDataUser() {
 
   products.name = productName
   products.price = productPrice
-  products.action = 'action were'
+  products.action = '##'
 
-  td_id.innerHTML = '0'
+  td_id.innerHTML = id++
   td_name.innerHTML = products.name
   td_price.innerHTML = products.price
   td_action.innerHTML = products.action
 
   return products
+}
+
+function save() {
+  localStorage.setItem('itemList', JSON.stringify(data))
 }
