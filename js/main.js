@@ -13,7 +13,6 @@ let id = Number(localStorage.getItem('lastId') || '1')
 
 function render() {
   myList.forEach(element => {
-    console.log(element)
 
     let row = tbody.insertRow()
 
