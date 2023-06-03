@@ -3,18 +3,18 @@ const inputProduct = document.querySelector('#product')
 const inputPrice = document.querySelector('#price')
 
 const btnSave = document.querySelector('.save')
+const btnDelete = document.querySelector('.cancel')
 
 const tbody = document.querySelector('table tbody')
 
 let myList = JSON.parse(localStorage.getItem('itemList') || '[]')
-console.log(myList)
 
 let id = Number(localStorage.getItem('lastId') || '1')
 
 function render() {
-  for (let i = 0; i < myList.length; i++) {
-    let items = myList[i]
-    
+  myList.forEach(element => {
+    console.log(element)
+
     let row = tbody.insertRow()
 
     let td_id = row.insertCell()
@@ -22,45 +22,45 @@ function render() {
     let td_price = row.insertCell()
     let td_action = row.insertCell()
 
-    td_id.innerHTML = items.id
-    td_name.innerHTML = items.name
-    td_price.innerHTML = items.price
-    td_action.innerHTML = items.action
-  }
+    td_id.innerHTML = element.id
+    td_name.innerHTML = element.name
+    td_price.innerHTML = element.price
+    td_action.innerHTML = element.action
+  });
 }
 render()
 
 btnSave.addEventListener('click', function () {
-  const products = getDataUser()
-  myList.push(products)
+  tbody.innerHTML = ''
+
+  getDataUser()
   save()
+  render()
 })
 
 function getDataUser() {
-  let products = {}
 
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
 
-  let row = tbody.insertRow()
+  let products = {
+    id: id++,
+    name: productName,
+    price: productPrice,
+    action: "##"
+  }
 
-  let td_id = row.insertCell()
-  let td_name = row.insertCell()
-  let td_price = row.insertCell()
-  let td_action = row.insertCell()
-
-  products.id = id++
-  products.name = productName
-  products.price = productPrice
-  products.action = '##'
-
-  td_id.innerHTML = products.id
-  td_name.innerHTML = products.name
-  td_price.innerHTML = products.price
-  td_action.innerHTML = products.action
+  myList.push(products)
 
   return products
 }
+
+btnDelete.addEventListener('click', function () {
+  // myList.forEach(element => {
+  //   element.remove()
+  // })
+  // render()
+})
 
 function save() {
   localStorage.setItem('itemList', JSON.stringify(myList))
