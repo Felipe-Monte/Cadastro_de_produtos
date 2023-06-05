@@ -41,7 +41,7 @@ function getDataUser() {
 
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
-  
+
   if (!productName || !productPrice) {
     return alert("Preencha os campos")
   }
@@ -71,7 +71,7 @@ btnDelete.addEventListener('click', function () {
 })
 
 function checkConfirm() {
-  let isOk = confirm("Deseja deletar ?")
+  let isOk = confirm("Deseja deletar todos os itens da lista ?")
   if (isOk) {
     return true
   } else {
