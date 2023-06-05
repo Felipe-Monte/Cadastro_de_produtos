@@ -26,7 +26,7 @@ function render() {
     td_price.innerHTML = element.price
     td_action.innerHTML = element.action
   });
-  
+
   const deleteButtons = document.querySelectorAll('.delete')
 
   deleteButtons.forEach(button => {
@@ -36,14 +36,17 @@ function render() {
     });
 
     function deleteRow(row) {
-      row.remove();
+      if (checkConfirm()) {
+        row.remove();
 
-      const rowIndex = Array.from(tbody.rows).indexOf(row); // Obtém o índice da linha
-      
-      myList.splice(rowIndex, 1); // Remove o elemento do array myList
+        const rowIndex = Array.from(tbody.rows).indexOf(row); // Obtém o índice da linha
 
-      localStorage.setItem('itemList', JSON.stringify(myList));
-      localStorage.setItem('lastId', id.toString());
+        myList.splice(rowIndex, 1); // Remove o elemento do array myList
+
+        localStorage.setItem('itemList', JSON.stringify(myList));
+        localStorage.setItem('lastId', id.toString());
+      }
+
     }
 
   });
@@ -94,7 +97,7 @@ btnDelete.addEventListener('click', function () {
 })
 
 function checkConfirm() {
-  let isOk = confirm("Deseja deletar todos os itens da lista ?")
+  let isOk = confirm("Deseja realmente deletar ?")
   if (isOk) {
     return true
   } else {
