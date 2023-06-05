@@ -10,9 +10,7 @@
 - Salvar produtos no localstorage
 - Cadastrar produtos do usuário
 - Apagar produto 
-- Editar produto
-- Verificar se o produto ja existe na lista 
-
+- Produtos devem seguir uma sequência numérica
 
 ## Screenshots
 
