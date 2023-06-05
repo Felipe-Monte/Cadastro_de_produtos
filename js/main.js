@@ -50,7 +50,7 @@ function getDataUser() {
     id: id++,
     name: productName,
     price: productPrice,
-    action: td.innerHTML
+    action: createTD().innerHTML
   }
 
   myList.push(products)
@@ -90,3 +90,5 @@ function createTD() {
   <button class="delete">Deletar</button>`
   return td
 }
+
+

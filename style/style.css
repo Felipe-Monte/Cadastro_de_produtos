@@ -76,6 +76,10 @@ table tbody td {
   border: 1px solid black;
 }
 
-table tbody td.table_button {
-  text-align: center; 
+table tbody td:last-child {
+  text-align: center;
+}
+
+table tbody td button {
+  padding: 5px;
 }
