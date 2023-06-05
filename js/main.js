@@ -9,7 +9,7 @@ const tbody = document.querySelector('table tbody')
 
 let myList = JSON.parse(localStorage.getItem('itemList') || '[]')
 
-let id = Number(localStorage.getItem('lastId') || '1')
+let id = myList.length > 0 ? myList[myList.length - 1].id + 1 : 1;
 
 function render() {
   myList.forEach(element => {
@@ -25,6 +25,27 @@ function render() {
     td_name.innerHTML = element.name
     td_price.innerHTML = element.price
     td_action.innerHTML = element.action
+  });
+  
+  const deleteButtons = document.querySelectorAll('.delete')
+
+  deleteButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const row = button.parentNode.parentNode
+      deleteRow(row)
+    });
+
+    function deleteRow(row) {
+      row.remove();
+
+      const rowIndex = Array.from(tbody.rows).indexOf(row); // Obtém o índice da linha
+      
+      myList.splice(rowIndex, 1); // Remove o elemento do array myList
+
+      localStorage.setItem('itemList', JSON.stringify(myList));
+      localStorage.setItem('lastId', id.toString());
+    }
+
   });
 }
 render()
