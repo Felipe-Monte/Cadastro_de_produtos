@@ -67,6 +67,8 @@ btnDelete.addEventListener('click', function () {
     })
 
     localStorage.clear()
+    myList = JSON.parse(localStorage.getItem('itemList') || '[]')
+    id = Number(localStorage.getItem('lastId') || '1')
   }
 })
 
