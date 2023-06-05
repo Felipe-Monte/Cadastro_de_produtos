@@ -41,7 +41,7 @@ function getDataUser() {
 
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
-
+  
   if (!productName || !productPrice) {
     return alert("Preencha os campos")
   }
@@ -50,7 +50,7 @@ function getDataUser() {
     id: id++,
     name: productName,
     price: productPrice,
-    action: "##"
+    action: td.innerHTML
   }
 
   myList.push(products)
@@ -82,4 +82,11 @@ function checkConfirm() {
 function save() {
   localStorage.setItem('itemList', JSON.stringify(myList))
   localStorage.setItem('lastId', id.toString())
+}
+
+function createTD() {
+  let td = document.createElement('td')
+  td.innerHTML = `<button class="edit">Editar</button>
+  <button class="delete">Deletar</button>`
+  return td
 }
