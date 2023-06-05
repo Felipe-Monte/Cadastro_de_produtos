@@ -42,6 +42,10 @@ function getDataUser() {
   let productName = inputProduct.value
   let productPrice = Number(inputPrice.value)
 
+  if (!productName || !productPrice) {
+    return alert("Preencha os campos")
+  }
+
   let products = {
     id: id++,
     name: productName,
@@ -55,11 +59,25 @@ function getDataUser() {
 }
 
 btnDelete.addEventListener('click', function () {
-  // myList.forEach(element => {
-  //   element.remove()
-  // })
-  // render()
+  let row = document.querySelectorAll('tbody tr')
+
+  if (checkConfirm()) {
+    row.forEach(element => {
+      element.remove()
+    })
+
+    localStorage.clear()
+  }
 })
+
+function checkConfirm() {
+  let isOk = confirm("Deseja deletar ?")
+  if (isOk) {
+    return true
+  } else {
+    return false
+  }
+}
 
 function save() {
   localStorage.setItem('itemList', JSON.stringify(myList))
