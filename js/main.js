@@ -31,23 +31,21 @@ function render() {
 
   deleteButtons.forEach(button => {
     button.addEventListener('click', function () {
-      const row = button.parentNode.parentNode
-      deleteRow(row)
-    });
+      const row = button.parentNode.parentNode;
+      const nameCell = row.querySelector('td:nth-child(2)');
+      const name = nameCell.textContent;
 
-    function deleteRow(row) {
-      if (checkConfirm()) {
+      // Procura o índice do item no array myList com base no nome
+      const index = myList.findIndex(item => item.name === name);
+
+      if (index !== -1) {
         row.remove();
-
-        const rowIndex = Array.from(tbody.rows).indexOf(row); // Obtém o índice da linha
-
-        myList.splice(rowIndex, 1); // Remove o elemento do array myList
-
+        myList.splice(index, 1); // Remove o elemento do array myList
         localStorage.setItem('itemList', JSON.stringify(myList));
         localStorage.setItem('lastId', id.toString());
       }
 
-    }
+    });
 
   });
 }
