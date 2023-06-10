@@ -27,7 +27,6 @@ O novo produto será exibido na lista em ordem numérica.
 Para remover um produto, clique no botão "Remover" ao lado do produto desejado.
 
 Os dados dos produtos cadastrados serão automaticamente salvos no localStorage do navegador.
-Limitações
 
 Como os dados são armazenados no localStorage do navegador, a quantidade de produtos que podem ser cadastrados é limitada pelo espaço disponível nesse armazenamento.
 
