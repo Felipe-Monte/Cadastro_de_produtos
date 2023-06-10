@@ -20,7 +20,7 @@ Na página inicial, você verá a lista de produtos cadastrados, se houver algum
 
 Para adicionar um novo produto, preencha o campo "Nome" com o nome do produto desejado e o campo "Valor" com o valor correspondente.
 
-Clique no botão "Adicionar" para incluir o produto na lista.
+Clique no botão "Salvar" para incluir o produto na lista.
 
 O novo produto será exibido na lista em ordem numérica.
 
