@@ -12,9 +12,8 @@ Os produtos são exibidos em uma ordem numérica.
 - JavaScript
 - localStorage
 
-Como utilizar
+#### Como utilizar
 Faça o download ou clone este repositório.  
-
 Abra o arquivo index.html em um navegador web compatível.
 
 Na página inicial, você verá a lista de produtos cadastrados, se houver algum.
@@ -27,8 +26,6 @@ O novo produto será exibido na lista em ordem numérica.
 
 Para remover um produto, clique no botão "Remover" ao lado do produto desejado.
 
-A lista será atualizada, removendo o produto selecionado.
-
 Os dados dos produtos cadastrados serão automaticamente salvos no localStorage do navegador.
 Limitações
 
@@ -38,9 +35,6 @@ A ordenação numérica dos produtos é baseada na ordem em que foram adicionado
 Contribuição
 
 Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões para melhorar o projeto, sinta-se à vontade para abrir uma "issue" ou enviar um "pull request" neste repositório.
-
-Licença
-Este projeto está licenciado sob a MIT License.
 
 ## Screenshots
 
