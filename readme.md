@@ -24,7 +24,7 @@ Clique no botão "Salvar" para incluir o produto na lista.
 
 O novo produto será exibido na lista em ordem numérica.
 
-Para remover um produto, clique no botão "Remover" ao lado do produto desejado.
+Para remover um produto, clique no botão "Cancelar" ao lado do produto desejado.
 
 Os dados dos produtos cadastrados serão automaticamente salvos no localStorage do navegador.
 
