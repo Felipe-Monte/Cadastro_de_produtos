@@ -6,7 +6,7 @@ Adicionar um produto à lista, informando seu nome e valor.
 Remover um produto da lista.
 Os produtos são exibidos em uma ordem numérica.
 
-####Tecnologias utilizadas
+#### Tecnologias utilizadas
 - HTML
 - CSS
 - JavaScript
